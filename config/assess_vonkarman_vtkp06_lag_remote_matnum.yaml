@@ -1,0 +1,22 @@
+# --- Slurm directive defaults -------------------------------------
+slurm:
+  job_name: a_vk06
+  partition: nodes
+  time: "02:00:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 40
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: python3 -m glood.assess_vonkarman_lag
+prelude:
+  - module load miniforge3/25.3.0-python3.12.10
+  - source activate env-torch-128
+sandbox: true
+sandbox_root: git_ignore/runs/assess_vonkarman_vtkp06_lag_remote_matnum
+
+local: false
+
+# --- Program-argument defaults ------------------------------------
+program:
+  assessment_inputs: remote_vonkarmann_vtkp06_skip39

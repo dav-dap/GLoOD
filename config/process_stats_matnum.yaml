@@ -1,0 +1,22 @@
+# --- Slurm directive defaults -------------------------------------
+slurm: # Do not touch
+  job_name: p_stats
+  partition: nodes
+  time: "00:10:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: glood_process_stats
+prelude:
+  - module  load miniforge3/25.3.0-python3.12.10
+  - source activate env-torch-128
+sandbox: false # Do not touch
+sandbox_root: git_ignore/runs/process_stats_matnum # Do not touch
+
+local: true
+
+# --- Program-argument defaults ------------------------------------
+program:
+  input_dir: /home/davide/barkla-fastscratch/glood-demo/git_ignore/infer_matnum/swin-circles,/home/davide/barkla-fastscratch/glood-demo/git_ignore/infer_matnum/swin-squares,/home/davide/barkla-fastscratch/glood-demo/git_ignore/infer_matnum/unet-circles,/home/davide/barkla-fastscratch/glood-demo/git_ignore/infer_matnum/unet-squares

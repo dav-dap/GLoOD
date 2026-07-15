@@ -1,0 +1,33 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+input_dir: __DUMMY__
+
+sweep:
+  input_csv_name: boundary_mask_metrics_global.csv
+  pairs:
+    - true_vs_matnum
+    - pred_vs_matnum
+    - pred_vs_true
+  metrics:
+    - iou
+    - dice
+    - precision
+    - recall
+    - fpr
+    - fnr
+
+plotting:
+  x_log_scale: true
+  y_log_scale: false
+  grid_ncols: 3
+
+outputs:
+  csv_subdir: csv
+  plot_subdir: plots
+  merged_csv: boundary_mask_metrics_sweep_merged.csv
+  summary_csv: boundary_mask_metrics_sweep_summary.csv

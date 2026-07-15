@@ -1,0 +1,72 @@
+defaults:
+  - _self_
+  - assessment_inputs: remote_matnum_all
+
+hydra:
+  run:
+    dir: .
+
+datasets: ${assessment_inputs.datasets}
+
+inputs:
+  selection_source: diagnostics_csv
+  manifest_csv: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/analysis/assess_fieldwise/fieldwise_selected_examples_manifest.csv
+  diagnostics_csv: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/analysis/assess_fieldwise/fieldwise_diagnostics_per_field.csv
+
+selection:
+  field_name: speed
+  timestep: ${export.timestep}
+  group_by_columns: []
+  categories:
+    - label: intensity_bias
+      top_k_pairs: 1
+      pair_models: true
+      pair_group_columns: [geometry, example_id]
+      required_models: [swin, unet]
+      sort_by: scale_explained_fraction
+      ascending: false
+      filters:
+        - column: raw_pearson_corr
+          op: ge
+          value: 0.9
+        - column: shift_explained_fraction
+          op: le
+          value: 0.05
+    - label: shift_dominated
+      top_k_pairs: 1
+      pair_models: true
+      pair_group_columns: [geometry, example_id]
+      required_models: [swin, unet]
+      sort_by: shift_explained_fraction
+      ascending: false
+      filters:
+        - column: best_shift_scale_manhattan
+          op: ge
+          value: 1
+        - column: raw_pearson_corr
+          op: ge
+          value: 0.5
+    - label: structural_mismatch
+      top_k_pairs: 1
+      pair_models: true
+      pair_group_columns: [geometry, example_id]
+      required_models: [swin, unet]
+      sort_by: structural_residual_ratio
+      ascending: false
+      filters:
+        - column: raw_pearson_corr
+          op: ge
+          value: 0.85
+        - column: shift_scale_explained_fraction
+          op: le
+          value: 0.4
+        - column: raw_rel_l2
+          op: ge
+          value: 0.1
+
+export:
+  timestep: 18
+  epoch: 0
+  output_subdir: selected_examples
+  artifacts:
+    - fieldwise_panel

@@ -1,0 +1,20 @@
+_target_: glood.src.models.glood.GLoOD
+
+visual_model:
+  _target_: glood.src.models.swin_transformer.SwinUnet
+  single_latent_dim: ${hyperparams_model.single_latent_dim}
+  bottleneck_dim: ${hyperparams_model.bottleneck_dim}
+  latent_pool_hw: ${hyperparams_model.latent_pool_hw}
+
+backbone:
+  _target_: glood.src.models.backbone_identity.BackBoneIdentity
+  # Dummy subtree kept only because glood.train.hack_conf expects to write here.
+  transformer:
+    d_model: __DUMMY__
+    dim_feedforward: __DUMMY__
+  sequence_length: __DUMMY__
+
+n_seq: __DUMMY__
+h: ${dataset_shapes.H}
+w: ${dataset_shapes.W}
+c: ${dataset_shapes.C}

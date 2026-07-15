@@ -1,0 +1,48 @@
+defaults:
+  - _self_
+  - problematic_input_source: __DUMMY__
+
+hydra:
+  run:
+    dir: .
+
+assessment:
+  staging_root: auto
+
+problematic_input:
+  input_dir: __DUMMY__
+  source_name: __DUMMY__
+  staging_root: ${assessment.staging_root}
+  sample_source: __DUMMY__
+  split: __DUMMY__
+  val_fraction: null
+  split_shuffle: false
+  max_examples: null
+  dataset:
+    shard_dir: __DUMMY__
+    shuffle: false
+
+analysis:
+  audit_fields: [p, speed]
+  score_quantile: 0.95
+  normalize_gradient_by_example_speed: true
+  speed_reference_quantile: 0.99
+  speed_reference_eps: 1.0e-12
+  fluid_value: 1
+  p_channel: 0
+  ux_channel: 1
+  uy_channel: 2
+  min_valid_points: 128
+
+selection:
+  grouping: example
+  snapshots_per_example: 1
+  top_k_gradient: 0
+  top_k_oscillation: 150
+  min_gradient_score: 1.0e-12
+  min_oscillation_score: 1.0e-12
+
+outputs:
+  snapshot_metrics_csv: problematic_snapshot_metrics.csv
+  selected_manifest_csv: problematic_selected_snapshots.csv
+  plot_subdir: suspicious_snapshots

@@ -1,0 +1,5 @@
+- _target_: glood.src.plotting.providers.ProviderFileGeneric
+  input_dir:
+    _target_: glood.src.utils.env.attach_to_cwd
+    path: ${input_dir}
+

@@ -1,0 +1,32 @@
+# --- Slurm directive defaults -------------------------------------
+slurm: # Do not touch
+  job_name: p_stats
+  partition: nodes
+  time: "00:10:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: glood_process_stats
+prelude:
+  - module  load miniforge3/25.3.0-python3.12.10
+  - source activate env-torch-128
+sandbox: true # Do not touch
+sandbox_root: git_ignore/runs/kfold_results # Do not touch
+
+local: true
+
+# --- Program-argument defaults ------------------------------------
+program:
+  input_dir: git_ignore/kfold-results/kfold_swin/0,git_ignore/kfold-results/kfold_unet/0
+  plot:
+    band_mode: robust
+    loss_ymin: 5e-2
+    loss_ymax: 2e-0
+    metrics_ymin: 5e-5
+    metrics_ymax: 5e-0
+    robust_lower_percentile: 25.0
+    robust_upper_percentile: 75.0
+    safe_log_bands: true
+    log_eps: 1.0e-12

@@ -1,0 +1,6 @@
+_target_: glood.src.datasets.sharded_dataset.ShardedDatasetSeriesKFold
+shard_dir:
+  _target_: glood.src.utils.env.attach_to_cwd
+  path: ${hyperparams_dataset.shard_dir}
+k: ${hyperparams_dataset.k}
+i: ${hyperparams_dataset.i}

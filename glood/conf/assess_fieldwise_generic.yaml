@@ -1,0 +1,32 @@
+defaults:
+  - _self_
+  - assessment_inputs: remote_matnum_all
+
+hydra:
+  run:
+    dir: .
+
+datasets: ${assessment_inputs.datasets}
+
+analysis:
+  p_channel: 0
+  ux_channel: 1
+  uy_channel: 2
+  fluid_value: 1
+  error_epsilon: 1.0e-8
+  fields: [ux, uy, speed]
+  max_shift_x: 12
+  max_shift_y: 12
+  min_overlap_points: 128
+  num_workers: auto
+  selected_examples_count: 3
+  selected_examples:
+    cavity: []
+    circles: []
+    squares: []
+
+outputs:
+  selected_examples_manifest_csv: fieldwise_selected_examples_manifest.csv
+  per_field_csv: fieldwise_diagnostics_per_field.csv
+  overall_csv: fieldwise_diagnostics_overall.csv
+  by_timestep_csv: fieldwise_diagnostics_by_timestep.csv

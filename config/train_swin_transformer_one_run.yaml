@@ -1,0 +1,46 @@
+# ─── Slurm directive defaults ─────────────────────────────────────
+slurm: # Do not touch
+  job_name: t_ine
+  partition: gpu-v100
+  time: "24:00:00"
+  gres: gpu:1
+  nodes: 1
+  ntasks: 1
+
+# ─── Launcher-specific defaults ───────────────────────────────────
+cmd: glood_train # Do not touch
+prelude: # Do not touch
+  - module load miniforge3/25.3.0-python3.12.10 # Do not touch
+  - source activate env-torch-128 # Do not touch
+sandbox: true # Do not touch
+sandbox_root: git_ignore/runs # Do not touch
+local: false
+
+# ─── Program-argument defaults ────────────────────────────────────
+program: # Do not touch
+  model: swin_transformer # Do not touch
+  dataset: sharded_single # Do not touch
+  plotters: single # Do not touch
+
+  hyperparams_dataset: # Do not touch
+    shard_dir: git_ignore/dataset_circles_single
+
+  hyperparams_model: # Do not touch
+    single_latent_dim: 256
+    bottleneck_dim: 256
+    latent_pool_hw: 8
+
+  optimizer:
+    kwargs:
+      lr: 1e-3
+
+  scheduler:
+    kwargs:
+      factor: 0.5
+      patience: 5
+      min_lr: 1e-6
+
+  train_params:
+    batch_size: 16
+    epochs: 200
+    val_fraction: 0.8

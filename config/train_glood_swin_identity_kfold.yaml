@@ -1,0 +1,54 @@
+# ─── Slurm directive defaults ─────────────────────────────────────
+slurm: # Do not touch
+  job_name: t_ids
+  partition: gpu-h100
+  time: "12:00:00"
+  gres: gpu:1
+  nodes: 1
+  ntasks: 1
+  mem: 128G
+
+# ─── Launcher-specific defaults ───────────────────────────────────
+cmd: glood_train # Do not touch
+prelude: # Do not touch
+  - module load miniforge3/25.3.0-python3.12.10 # Do not touch
+  - source activate env-torch-128 # Do not touch
+  - export HYDRA_FULL_ERROR=1
+sandbox: true # Do not touch
+sandbox_root: git_ignore/runs # Do not touch
+local: false
+
+# ─── Program-argument defaults ────────────────────────────────────
+program: # Do not touch
+  model: glood_swin_identity
+  dataset: sharded_series_kfold # Do not touch
+
+  hyperparams_dataset: # Do not touch
+    dataset_base_folder: git_ignore/dataset_circles_matnum/0
+    k: 10
+    i: 0,1,2,3,4,5,6,7,8,9
+
+  hyperparams_model: # Do not touch
+    dropout_rate: 0.1
+    single_latent_dim: 256
+    bottleneck_dim: 256
+    latent_pool_hw: 8
+
+  optimizer:
+    kwargs:
+      lr: 1e-3
+
+  scheduler:
+    kwargs:
+      factor: 0.5
+      patience: 5
+      min_lr: 1e-6
+
+  train_params:
+    batch_size: 8
+    epochs: 200
+    # Ignored by k-fold datasets; triggers the split in ModelWrapper.
+    val_fraction: 0.0
+    split_shuffle: false
+    plot_number_of_examples: 5
+    plot_epoch_interval: 50

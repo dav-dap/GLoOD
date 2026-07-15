@@ -1,0 +1,134 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+columns:
+  - title: p cavity-48
+    field: p
+    colorbar_label: Pressure
+    example_dirs:
+      swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/swin-cavity-48
+      unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/unet-cavity-48
+      id-swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-swin-cavity-48
+      id-unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-unet-cavity-48
+  - title: u cavity-48
+    field: u
+    colorbar_label: Velocity
+    example_dirs:
+      swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/swin-cavity-48
+      unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/unet-cavity-48
+      id-swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-swin-cavity-48
+      id-unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-unet-cavity-48
+  - title: p vonkarman_vtkp06_skip39-01
+    field: p
+    colorbar_label: Pressure
+    example_dirs:
+      swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/swin-vonkarmann-skip39-1
+      unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/unet-vonkarmann-skip39-1
+      id-swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-swin-vonkarmann-skip39-1
+      id-unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-unet-vonkarmann-skip39-1
+  - title: u vonkarman_vtkp06_skip39-01
+    field: u
+    colorbar_label: Velocity
+    example_dirs:
+      swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/swin-vonkarmann-skip39-1
+      unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/unet-vonkarmann-skip39-1
+      id-swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-swin-vonkarmann-skip39-1
+      id-unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-unet-vonkarmann-skip39-1
+  - title: p vonkarman-skip09-01
+    field: p
+    colorbar_label: Pressure
+    example_dirs:
+      swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/swin-vonkarmann-skip09-1
+      unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/unet-vonkarmann-skip09-1
+      id-swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-swin-vonkarmann-skip09-1
+      id-unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-unet-vonkarmann-skip09-1
+  - title: u vonkarman-skip09-01
+    field: u
+    colorbar_label: Velocity
+    example_dirs:
+      swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/swin-vonkarmann-skip09-1
+      unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/unet-vonkarmann-skip09-1
+      id-swin: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-swin-vonkarmann-skip09-1
+      id-unet: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples/id-unet-vonkarmann-skip09-1
+
+cmaps:
+  p: plasma
+  u: cividis
+
+figure:
+  sequence_figsize: [8.27, 11.69]
+  from_views_width: 8.27
+  last_timestep_figsize: [4.0, 4.6]
+  dpi: 300
+  origin: lower
+  interpolation: nearest
+
+sequence_pages:
+  input_root: /home/davide/barkla-data/glood-demo_paper01_supporting_evidence/inference/inference-examples
+  output_subdir: sequence_pages
+  show_suptitle: true
+
+summary_from_views:
+  blank_shape: [101, 101]
+  blank_value: 0.0
+  panel_gap: 0.0
+  column_labels: [true, swin, unet, id-swin, id-unet]
+  row_group_titles: [squares-98, cavity-48, vonkarman-skip39-01]
+  grid_files:
+    - [
+        swin-squares-98__last_timestep__p_true.npy,
+        swin-squares-98__last_timestep__p_pred.npy,
+        unet-squares-98__last_timestep__p_pred.npy,
+        id-swin-squares-98__last_timestep__p_pred.npy,
+        id-unet-squares-98__last_timestep__p_pred.npy,
+      ]
+    - [
+        swin-squares-98__last_timestep__u_true.npy,
+        swin-squares-98__last_timestep__u_pred.npy,
+        unet-squares-98__last_timestep__u_pred.npy,
+        id-swin-squares-98__last_timestep__u_pred.npy,
+        id-unet-squares-98__last_timestep__u_pred.npy,
+      ]
+    - [
+        swin-cavity-48__last_timestep__p_true.npy,
+        swin-cavity-48__last_timestep__p_pred.npy,
+        unet-cavity-48__last_timestep__p_pred.npy,
+        id-swin-cavity-48__last_timestep__p_pred.npy,
+        id-unet-cavity-48__last_timestep__p_pred.npy,
+      ]
+    - [
+        swin-cavity-48__last_timestep__u_true.npy,
+        swin-cavity-48__last_timestep__u_pred.npy,
+        unet-cavity-48__last_timestep__u_pred.npy,
+        id-swin-cavity-48__last_timestep__u_pred.npy,
+        id-unet-cavity-48__last_timestep__u_pred.npy,
+      ]
+    - [
+        swin-vonkarmann-skip39-1__last_timestep__p_true.npy,
+        swin-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+        unet-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+        id-swin-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+        id-unet-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+      ]
+    - [
+        swin-vonkarmann-skip39-1__last_timestep__u_true.npy,
+        swin-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+        unet-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+        id-swin-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+        id-unet-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+      ]
+
+last_timestep_panels:
+  views_subdir: last_timestep_panel_views
+  from_views_subdir: last_timestep_panels_from_views
+
+outputs:
+  render_sequence_pages: true
+  render_last_timestep_views: true
+  render_summary_page_from_views: true
+  summary_from_views_filename: paper_snapshot_grid_from_views.png
+  pad_inches: 0.02

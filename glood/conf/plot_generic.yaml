@@ -1,0 +1,15 @@
+defaults:
+  - _self_
+  - plotting_providers: __DUMMY__
+  - plotters: __DUMMY__
+  - plotting_protocols: base
+
+hydra:
+  run:
+    dir: .
+
+input_dir: __DUMMY__
+
+plotting:
+  remove_title: false
+  protocols: ${plotting_protocols}

@@ -1,0 +1,5 @@
+# Which Python object to build:
+_target_: glood.src.losses.combined_mse_cosine_similarity.CombinedMseSimilarityLoss
+
+# Constructor arguments (match __init__ signature)
+alpha: ${hyperparams_model.loss_alpha}

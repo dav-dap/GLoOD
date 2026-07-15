@@ -1,0 +1,19 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+input_dir: __DUMMY__
+
+plot:
+  band_mode: robust  # one of: robust, mean_std
+  robust_lower_percentile: 25.0
+  robust_upper_percentile: 75.0
+  safe_log_bands: true
+  log_eps: 1.0e-12
+  loss_ymin: null
+  loss_ymax: null
+  metrics_ymin: null
+  metrics_ymax: null

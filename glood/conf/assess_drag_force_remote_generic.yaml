@@ -1,0 +1,40 @@
+defaults:
+  - _self_
+  - assessment_inputs: remote_matnum_all
+
+hydra:
+  run:
+    dir: .
+
+datasets: ${assessment_inputs.datasets}
+
+assessment:
+  p_channel: 0
+  ux_channel: 1
+  uy_channel: 2
+  fluid_value: 1
+  wall_value: 2
+  crop_margin: 3
+  dx: 1.0
+  dy: 1.0
+  error_epsilon: 1.0e-8
+  viscous_prefactor: 1.0
+
+outputs:
+  output_stem_prefix: drag_force_
+  per_timestep_csv: drag_force_per_timestep.csv
+  summary_csv: drag_force_summary.csv
+  global_csv: drag_force_global.csv
+  prefix_exclusion_csv: drag_force_prefix_exclusion.csv
+  magnitude_gated_csv: drag_force_magnitude_gated.csv
+  example_terciles_csv: drag_force_example_terciles.csv
+  stratified_subdir: stratified
+
+analysis:
+  true_force_percentiles: [50, 75, 90, 95, 99]
+
+plotting:
+  enabled: true
+  subdir: plots
+  max_examples: 8
+  error_boxplot_exclusions: [1, 2, 5, 7]

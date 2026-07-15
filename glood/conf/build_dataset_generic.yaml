@@ -1,0 +1,35 @@
+defaults:
+  - _self_
+  - parsing: __DUMMY__
+  - plotting_providers: provider_dataset
+  - plotters: __DUMMY__
+
+hydra:
+  run:
+    dir: .
+
+dataset:
+  examples_per_file: 256
+  shapes:
+    H: 101
+    W: 101
+    C: 3
+    len_seq: 20
+  shuffle: true
+
+diagnostics:
+  examples_to_plot: 5
+
+input_dir: __DUMMY__
+
+plotting:
+  remove_title: false
+  protocols:
+    - _target_: glood.src.plotting.processing_protocols.p_pred
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.p_true
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_pred
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_true
+      _partial_: true

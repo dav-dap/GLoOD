@@ -1,0 +1,28 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+domain:
+  side_length: 1.0
+  x_fractions: [0.25, 0.50, 0.75]
+
+outputs:
+  figure_stem: square_domain_sections_schematic
+  sections_csv: square_domain_sections_schematic.csv
+
+plotting:
+  figure_size: 5.8
+  fontsize: 11
+  title_fontsize: 14
+  domain_facecolor: "#f3f0e8"
+  domain_edgecolor: "black"
+  domain_linewidth: 2.0
+  section_color: "#b33a3a"
+  section_linestyle: "--"
+  section_linewidth: 2.0
+  section_label_offset: 0.04
+  outer_margin: 0.16
+  domain_label: square computational domain

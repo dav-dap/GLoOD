@@ -1,0 +1,4 @@
+_target_: glood.src.models.swin_transformer.SwinUnet
+single_latent_dim: ${hyperparams_model.single_latent_dim}
+bottleneck_dim: ${hyperparams_model.bottleneck_dim}
+latent_pool_hw: ${hyperparams_model.latent_pool_hw}

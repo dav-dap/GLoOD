@@ -1,0 +1,2 @@
+_target_: glood.src.models.unet_tri_decoupled.UNet_tri_decoupled
+single_latent_dim: ${hyperparams_model.single_latent_dim}

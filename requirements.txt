@@ -1,0 +1,5 @@
+hydra-core
+hydra-submitit-launcher   # enables the SLURM backend
+omegaconf                 # (pulled in by hydra‑core, but list explicitly)
+einops
+timm

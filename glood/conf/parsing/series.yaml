@@ -1,0 +1,6 @@
+_target_: glood.src.datasets.parsing.ParseSeries
+H: ${dataset.shapes.H}
+W: ${dataset.shapes.W}
+C: ${dataset.shapes.C}
+len_seq: ${dataset.shapes.len_seq}
+shuffle: ${dataset.shuffle}

@@ -1,0 +1,5 @@
+_target_: glood.src.datasets.parsing.ParseSingle
+H: ${dataset.shapes.H}
+W: ${dataset.shapes.W}
+C: ${dataset.shapes.C}
+shuffle: ${dataset.shuffle}

@@ -1,0 +1,12 @@
+_target_: glood.src.managing.model_wrapper.ModelWrapper
+model: ${model}
+loss_fn: ${loss}
+optimizer_cls:
+  _target_: hydra.utils.get_class
+  path: ${optimizer.class_path}
+optimizer_kwargs: ${optimizer.kwargs}
+scheduler_cls:
+  _target_: hydra.utils.get_class
+  path: ${scheduler.class_path}
+scheduler_kwargs: ${scheduler.kwargs}
+device: cuda

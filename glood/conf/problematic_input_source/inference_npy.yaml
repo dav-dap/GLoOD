@@ -1,0 +1,4 @@
+_target_: glood.src.assessment.problematic_sources.InferenceNpySource
+input_dir: ${problematic_input.input_dir}
+source_name: ${problematic_input.source_name}
+staging_root: ${problematic_input.staging_root}

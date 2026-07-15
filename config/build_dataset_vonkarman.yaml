@@ -1,0 +1,35 @@
+# ─── Slurm directive defaults ─────────────────────────────────────
+slurm: # Do not touch
+  job_name: d_seq
+  partition: nodes
+  time: "20:00:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# ─── Launcher-specific defaults ───────────────────────────────────
+cmd: glood_build_dataset # Do not touch
+prelude: # Do not touch
+  - module load miniforge3/25.3.0-python3.12.10 # Do not touch
+  - source activate env-torch-128 # Do not touch
+sandbox: true # Do not touch
+sandbox_root: git_ignore/runs/dataset_vonkarman_matnum # Do not touch
+local: false
+
+# ─── Program-argument defaults ────────────────────────────────────
+program: # Do not touch
+  # Raw Von Karman files have 59 non-empty timesteps.
+  # skip39 + len_seq=20 keeps the final 20 snapshots, i.e. the last 19 next-step transitions.
+  parsing: series_with_matnum_skip9
+  plotters: series
+
+  dataset:
+    examples_per_file: 128
+    shuffle: false
+    shapes:
+      C: 4
+
+  diagnostics:
+    examples_to_plot: 3
+
+  input_dir: /users/dapelo/data/glood-demo_paper01_supporting_evidence/datasets_test/vonkarmann_vtkp06_matnum_raw

@@ -1,0 +1,7 @@
+_target_: glood.src.datasets.parsing.ParseSeriesWithMatnum
+H: ${dataset.shapes.H}
+W: ${dataset.shapes.W}
+C: ${dataset.shapes.C}
+len_seq: ${dataset.shapes.len_seq}
+shuffle: ${dataset.shuffle}
+start_index: 39

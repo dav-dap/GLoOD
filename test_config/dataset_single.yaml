@@ -1,0 +1,31 @@
+# ─── Slurm directive defaults ─────────────────────────────────────
+slurm: # Do not touch
+  job_name: d_seq
+  partition: nodes
+  time: "02:00:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# ─── Launcher-specific defaults ───────────────────────────────────
+cmd: glood_build_dataset # Do not touch
+prelude: # Do not touch
+  - module  load miniforge3/25.3.0-python3.12.10 # Do not touch
+  - source activate env-torch-128 # Do not touch
+sandbox: false # Do not touch
+sandbox_root: git_ignore/test_runs/dataset_single # Do not touch
+local: true
+
+# ─── Program-argument defaults ────────────────────────────────────
+program: # Do not touch
+  parsing: single 
+  plotters: single
+
+  dataset:
+    examples_per_file: 2
+    shuffle: false
+
+  diagnostics:
+    examples_to_plot: 1
+
+  input_dir: test_material/simulations

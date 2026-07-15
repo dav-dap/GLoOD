@@ -1,0 +1,9 @@
+- _target_: glood.src.plotting.plotting_agents.plot_single
+  providers: ${plotting_providers}
+  protocols: ${plotting.protocols}
+  remove_title: ${plotting.remove_title}
+
+- _target_: glood.src.plotting.plotting_agents.plot_snapshot
+  providers: ${plotting_providers}
+  protocols: ${plotting.protocols}
+  remove_title: ${plotting.remove_title}

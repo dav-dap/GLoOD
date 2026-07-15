@@ -1,0 +1,41 @@
+datasets:
+  - label: unet-vonkarmann-skip09
+    model: unet
+    geometry: vonkarmann
+    variant: skip09
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/unet-vonkarmann-skip09.tar
+  - label: swin-vonkarmann-skip09
+    model: swin
+    geometry: vonkarmann
+    variant: skip09
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/swin-vonkarmann-skip09.tar
+  - label: id-unet-vonkarmann-skip09
+    model: id-unet
+    geometry: vonkarmann
+    variant: skip09
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-unet-vonkarmann-skip09
+  - label: id-swin-vonkarmann-skip09
+    model: id-swin
+    geometry: vonkarmann
+    variant: skip09
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-swin-vonkarmann-skip09
+  - label: unet-vonkarmann-skip39
+    model: unet
+    geometry: vonkarmann
+    variant: skip39
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/unet-vonkarmann-skip39.tar
+  - label: swin-vonkarmann-skip39
+    model: swin
+    geometry: vonkarmann
+    variant: skip39
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/swin-vonkarmann-skip39.tar
+  - label: id-unet-vonkarmann-skip39
+    model: id-unet
+    geometry: vonkarmann
+    variant: skip39
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-unet-vonkarmann-skip39
+  - label: id-swin-vonkarmann-skip39
+    model: id-swin
+    geometry: vonkarmann
+    variant: skip39
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-swin-vonkarmann-skip39

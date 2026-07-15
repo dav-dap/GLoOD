@@ -1,0 +1,9 @@
+- _target_: glood.src.plotting.providers.ProviderFileEpoch
+  input_dir:
+    _target_: glood.src.utils.env.attach_to_out
+    path: train
+
+- _target_: glood.src.plotting.providers.ProviderFileEpoch
+  input_dir:
+    _target_: glood.src.utils.env.attach_to_out
+    path: val

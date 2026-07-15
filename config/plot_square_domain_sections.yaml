@@ -1,0 +1,19 @@
+# --- Slurm directive defaults -------------------------------------
+slurm:
+  job_name: p_sqdom
+  partition: nodes
+  time: "00:10:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: python3 -m glood.plot_square_domain_sections
+prelude: []
+sandbox: true
+sandbox_root: git_ignore/runs/plot_square_domain_sections
+
+local: true
+
+# --- Program-argument defaults ------------------------------------
+program: {}

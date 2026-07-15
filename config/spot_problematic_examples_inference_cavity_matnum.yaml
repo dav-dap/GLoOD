@@ -1,0 +1,25 @@
+# --- Slurm directive defaults -------------------------------------
+slurm:
+  job_name: a_prob_cav
+  partition: nodes
+  time: "01:30:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: /usr/bin/env HYDRA_FULL_ERROR=1 python3 -m glood.assess_problematic_examples
+prelude: []
+sandbox: true
+sandbox_root: git_ignore/runs/assess_problematic_examples_inference_cavity_matnum
+
+local: true
+
+# --- Program-argument defaults ------------------------------------
+program:
+  problematic_input_source: inference_npy
+  problematic_input:
+    # The true cavity fields are model-independent; the Swin tar is used here
+    # only as the inference artifact container.
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/swin-cavity.tar
+    source_name: "true"

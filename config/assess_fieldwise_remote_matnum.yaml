@@ -1,0 +1,19 @@
+# --- Slurm directive defaults -------------------------------------
+slurm:
+  job_name: a_field
+  partition: nodes
+  time: "02:00:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 40
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: python3 -m glood.assess_fieldwise
+prelude: []
+sandbox: true
+sandbox_root: git_ignore/runs/assess_fieldwise_remote_matnum
+
+local: true
+
+# --- Program-argument defaults ------------------------------------
+program: {}

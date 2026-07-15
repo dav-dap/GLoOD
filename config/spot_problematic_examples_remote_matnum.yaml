@@ -1,0 +1,29 @@
+# --- Slurm directive defaults -------------------------------------
+slurm:
+  job_name: a_prob_ds
+  partition: nodes
+  time: "01:30:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+# --- Launcher-specific defaults -----------------------------------
+cmd: /usr/bin/env HYDRA_FULL_ERROR=1 python3 -m glood.assess_problematic_examples
+prelude:
+  - export HYDRA_FULL_ERROR=1
+sandbox: true
+sandbox_root: git_ignore/runs/assess_problematic_examples_remote_matnum
+
+local: false
+
+# --- Program-argument defaults ------------------------------------
+program:
+  problematic_input_source: sharded_dataset
+  problematic_input:
+    dataset:
+      shard_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_test/dataset_circles_matnum/0/dataset,/mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_test/dataset_squares_matnum/0/dataset,/mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_test/dataset_cavity_matnum_Re12000/dataset
+      #shard_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_train/dataset_circles_101x101/dataset,/mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_test/dataset_circles_matnum/0/dataset,/mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_test/dataset_squares_matnum/0/dataset,/mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/datasets_test/dataset_cavity_matnum_Re12000/dataset
+      shuffle: false
+    sample_source: targets
+    source_name: "target"
+    split: all

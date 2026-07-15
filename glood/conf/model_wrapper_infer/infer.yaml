@@ -1,0 +1,4 @@
+_target_: glood.src.managing.model_wrapper.ModelWrapper.infer
+_partial_: true
+dataset: ${dataset}
+n_items: ${infer_params.n_items}

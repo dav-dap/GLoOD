@@ -1,0 +1,5 @@
+_target_: glood.src.datasets.sharded_dataset.ShardedDatasetSeriesWithMatnum
+shard_dir:
+  _target_: glood.src.utils.env.attach_to_cwd
+  path: ${hyperparams_dataset.shard_dir}
+shuffle: ${hyperparams_dataset.shuffle}

@@ -1,0 +1,25 @@
+slurm:
+  job_name: p_mat
+  partition: nodes
+  time: "00:10:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+cmd: glood_plot
+prelude:
+  - module  load miniforge3/25.3.0-python3.12.10
+  - source activate env-torch-128
+sandbox: false # Do not touch
+sandbox_root: git_ignore/test_runs/plot_seq_matnum # Do not touch
+
+local: true
+
+program:
+  plotters: series
+  plotting_protocols: matnum
+  plotting_providers:
+    - provider_file_generic
+  input_dir: git_ignore/test_runs/train_glood_unet_matnum/0/train
+  plotting:
+    remove_title: true

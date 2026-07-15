@@ -1,0 +1,11 @@
+_target_: glood.src.managing.model_wrapper.ModelWrapper.train
+_partial_: true
+dataset: ${dataset}
+epochs: ${train_params.epochs}
+batch_size: ${train_params.batch_size}
+val_fraction: ${train_params.val_fraction}
+split_shuffle: ${train_params.split_shuffle}
+val_batch_size: ${hyperparams_dataset.val_batch_size}
+gradient_clip_norm: ${hyperparams_model.gradient_clip_norm}
+callbacks: ${callbacks}
+metrics: ${hyperparams_model.metrics}

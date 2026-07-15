@@ -1,0 +1,38 @@
+defaults:
+  - _self_
+  - dataset: __DUMMY__
+  - model_wrapper_infer: infer
+  - plotting_providers: provider_file_infer
+
+hydra:
+  run:
+    dir: .
+
+model_folder: __DUMMY__
+
+hyperparams_dataset:
+  dataset_base_folder: __DUMMY__
+  shard_subfolder: dataset
+  shard_dir: ${hyperparams_dataset.dataset_base_folder}/${hyperparams_dataset.shard_subfolder}
+  shuffle: false
+
+infer_params:
+  n_items: -1
+
+plotting:
+  remove_title: false
+  protocols:
+    - _target_: glood.src.plotting.processing_protocols.p_pred
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.p_true
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.p_mse
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_pred
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_true
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_mse
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_cos_dist
+      _partial_: true

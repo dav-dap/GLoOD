@@ -1,0 +1,39 @@
+defaults:
+  - _self_
+  - assessment_inputs: remote_vonkarmann_all
+
+hydra:
+  run:
+    dir: .
+
+datasets: ${assessment_inputs.datasets}
+
+analysis:
+  p_channel: 0
+  ux_channel: 1
+  uy_channel: 2
+  fluid_value: 1
+  error_epsilon: 1.0e-8
+  lag_fields: [speed, vorticity]
+  fieldwise_fields: [ux, uy, speed]
+  profile_x_fractions: [0.25, 0.50, 0.75]
+  alignments: [current, previous]
+  start_timestep: 1
+  end_timestep: null
+  max_shift_x: 12
+  max_shift_y: 12
+  min_overlap_points: 128
+  num_workers: auto
+  max_examples: 0
+
+outputs:
+  lag_per_frame_csv: vonkarman_lag_per_frame.csv
+  lag_summary_csv: vonkarman_lag_summary.csv
+  lag_by_timestep_csv: vonkarman_lag_by_timestep.csv
+  fieldwise_per_field_csv: vonkarman_fieldwise_per_field.csv
+  fieldwise_overall_csv: vonkarman_fieldwise_overall.csv
+  fieldwise_by_timestep_csv: vonkarman_fieldwise_by_timestep.csv
+  profile_per_profile_csv: vonkarman_profile_per_profile.csv
+  profile_summary_csv: vonkarman_profile_summary.csv
+  profile_overall_csv: vonkarman_profile_overall.csv
+  profile_by_timestep_csv: vonkarman_profile_by_timestep.csv

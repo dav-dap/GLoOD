@@ -1,0 +1,6 @@
+- _target_: glood.src.callbacks.nan_guard.NaNGuardCallback
+- _target_: glood.src.callbacks.epoch_history_printer.EpochHistoryPrinterCallback
+  digits: ${train_params.history_digits}
+- _target_: glood.src.callbacks.epoch_plotter.EpochPlotter
+  number_of_examples: ${train_params.plot_number_of_examples}
+  epoch_interval: ${train_params.plot_epoch_interval}

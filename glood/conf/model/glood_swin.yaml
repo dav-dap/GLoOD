@@ -1,0 +1,25 @@
+_target_: glood.src.models.glood.GLoOD
+
+visual_model:
+  _target_: glood.src.models.swin_transformer.SwinUnet
+  single_latent_dim: ${hyperparams_model.single_latent_dim}
+  bottleneck_dim: ${hyperparams_model.bottleneck_dim}
+  latent_pool_hw: ${hyperparams_model.latent_pool_hw}
+
+backbone:
+  _target_: glood.src.models.backbone_transformer_sinusoidal.BackBoneTransformerSinusoidal
+  transformer:
+    _target_: torch.nn.Transformer
+    d_model: __DUMMY__
+    nhead: 4
+    num_encoder_layers: 2
+    num_decoder_layers: 2
+    dim_feedforward: __DUMMY__
+    dropout: ${hyperparams_model.dropout_rate}
+    batch_first: true
+  sequence_length: __DUMMY__
+
+n_seq: __DUMMY__
+h: ${dataset_shapes.H}
+w: ${dataset_shapes.W}
+c: ${dataset_shapes.C}

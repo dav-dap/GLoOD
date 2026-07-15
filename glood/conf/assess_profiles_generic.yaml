@@ -1,0 +1,39 @@
+defaults:
+  - _self_
+  - assessment_inputs: remote_matnum_all
+
+hydra:
+  run:
+    dir: .
+
+datasets: ${assessment_inputs.datasets}
+
+analysis:
+  p_channel: 0
+  ux_channel: 1
+  uy_channel: 2
+  fluid_value: 1
+  error_epsilon: 1.0e-8
+  x_fractions: [0.25, 0.50, 0.75]
+  true_profile_l2_percentiles: [50, 75, 90, 95, 99]
+  selected_examples_count: 3
+  selected_examples:
+    cavity: []
+    circles: [167, 196, 213]
+    squares: [24, 139, 194]
+
+outputs:
+  selected_examples_manifest_csv: selected_examples_manifest.csv
+  per_profile_csv: profile_error_per_profile.csv
+  summary_csv: profile_error_summary.csv
+  overall_csv: profile_error_overall.csv
+  selected_profiles_csv: selected_example_line_profiles.csv
+  prefix_exclusion_csv: profile_error_prefix_exclusion.csv
+  true_profile_l2_gated_csv: profile_error_true_profile_l2_gated.csv
+  true_profile_l2_gated_by_timestep_csv: profile_error_true_profile_l2_gated_by_timestep.csv
+
+plotting:
+  enabled: true
+  boxplot_stem: profile_error_boxplot
+  selected_examples_subdir: selected_examples
+  include_column_index: false

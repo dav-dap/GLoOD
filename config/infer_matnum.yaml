@@ -1,0 +1,30 @@
+# ─── Slurm directive defaults ─────────────────────────────────────
+slurm: # Do not touch
+  job_name: i_glood
+  partition: gpu-a-lowsmall
+  time: "24:00:00"
+  gres: gpu:1
+  nodes: 1
+  ntasks: 1
+
+# ─── Launcher-specific defaults ───────────────────────────────────
+cmd: glood_infer # Do not touch
+prelude: # Do not touch
+  - module  load miniforge3/25.3.0-python3.12.10 # Do not touch
+  - source activate env-torch-128 # Do not touch
+sandbox: true # Do not touch
+sandbox_root: git_ignore/runs/infer_matnum # Do not touch
+local: false
+
+# ─── Program-argument defaults ────────────────────────────────────
+program: # Do not touch
+  dataset: sharded_series_with_matnum # Do not touch
+
+  model_folder: /users/dapelo/data/glood-demo_paper01_supporting_evidence/models_checkpoints/trained_glood_swin_independent_march,/users/dapelo/data/glood-demo_paper01_supporting_evidence/models_checkpoints/trained_glood_unet_tri_decoupled_independent_march
+
+  hyperparams_dataset: # Do not touch
+    dataset_base_folder: /users/dapelo/data/glood-demo_paper01_supporting_evidence/datasets_test/vonkarmann_matnum_vtkp06_skip39
+    #dataset_base_folder: /users/dapelo/data/glood-demo_paper01_supporting_evidence/datasets_test/circles_matnum,/users/dapelo/data/glood-demo_paper01_supporting_evidence/datasets_test/squares_matnum,/users/dapelo/data/glood-demo_paper01_supporting_evidence/datasets_test/cavity_matnum
+
+#  infer_params: # Do not touch
+#    n_items: 2

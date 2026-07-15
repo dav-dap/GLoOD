@@ -1,0 +1,6 @@
+- _target_: glood.src.plotting.providers.ProviderDataset
+  input_dir:
+    _target_: glood.src.utils.env.attach_to_out
+    path: dataset
+  parser: ${parsing}
+  max_iterations: ${diagnostics.examples_to_plot}

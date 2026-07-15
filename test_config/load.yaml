@@ -1,0 +1,21 @@
+slurm:
+  job_name: p_one
+  partition: nodes
+  time: "00:10:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 1
+
+cmd: glood_load
+prelude:
+  - module  load miniforge3/25.3.0-python3.12.10
+  - source activate env-torch-128
+  #- cp -r $SUBMIT_DIR/glood/conf conf_orig
+  #- cp $SUBMIT_DIR/glood/conf/plot_generic.yaml conf_orig/conf_orig.yaml
+sandbox: false # Do not touch
+sandbox_root: git_ignore/test_runs/load_glood_unet # Do not touch
+
+local: true
+
+program:
+  input_dir: git_ignore/test_runs/train_glood_unet/0

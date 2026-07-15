@@ -1,0 +1,14 @@
+- _target_: glood.src.plotting.processing_protocols.p_pred
+  _partial_: true
+- _target_: glood.src.plotting.processing_protocols.p_true
+  _partial_: true
+- _target_: glood.src.plotting.processing_protocols.p_mse
+  _partial_: true
+- _target_: glood.src.plotting.processing_protocols.u_pred
+  _partial_: true
+- _target_: glood.src.plotting.processing_protocols.u_true
+  _partial_: true
+- _target_: glood.src.plotting.processing_protocols.u_mse
+  _partial_: true
+- _target_: glood.src.plotting.processing_protocols.u_cos_dist
+  _partial_: true

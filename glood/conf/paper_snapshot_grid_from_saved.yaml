@@ -1,0 +1,76 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+input_root: /home/davide/projects/glood-demo/analysis/paper_snapshot_grid_examples/last_timestep_panel_views
+output_filename: paper_snapshot_grid_from_saved.png
+pad_inches: 0.02
+
+column_labels: [true, swin, unet, id-swin, id-unet]
+group_titles: [squares-98, cavity-48, vonkarman-skip39-01]
+
+cmaps:
+  p: plasma
+  u: cividis
+
+figure:
+  width: 8.27
+  colorbar_width: 0.14
+  dpi: 300
+  title_gap: 0.006
+  group_title_gap: 0.012
+  origin: lower
+  interpolation: nearest
+
+rows:
+  - field: p
+    files: [
+      swin-squares-98__last_timestep__p_true.npy,
+      swin-squares-98__last_timestep__p_pred.npy,
+      unet-squares-98__last_timestep__p_pred.npy,
+      id-swin-squares-98__last_timestep__p_pred.npy,
+      id-unet-squares-98__last_timestep__p_pred.npy,
+    ]
+  - field: u
+    files: [
+      swin-squares-98__last_timestep__u_true.npy,
+      swin-squares-98__last_timestep__u_pred.npy,
+      unet-squares-98__last_timestep__u_pred.npy,
+      id-swin-squares-98__last_timestep__u_pred.npy,
+      id-unet-squares-98__last_timestep__u_pred.npy,
+    ]
+  - field: p
+    files: [
+      swin-cavity-48__last_timestep__p_true.npy,
+      swin-cavity-48__last_timestep__p_pred.npy,
+      unet-cavity-48__last_timestep__p_pred.npy,
+      id-swin-cavity-48__last_timestep__p_pred.npy,
+      id-unet-cavity-48__last_timestep__p_pred.npy,
+    ]
+  - field: u
+    files: [
+      swin-cavity-48__last_timestep__u_true.npy,
+      swin-cavity-48__last_timestep__u_pred.npy,
+      unet-cavity-48__last_timestep__u_pred.npy,
+      id-swin-cavity-48__last_timestep__u_pred.npy,
+      id-unet-cavity-48__last_timestep__u_pred.npy,
+    ]
+  - field: p
+    files: [
+      swin-vonkarmann-skip39-1__last_timestep__p_true.npy,
+      swin-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+      unet-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+      id-swin-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+      id-unet-vonkarmann-skip39-1__last_timestep__p_pred.npy,
+    ]
+  - field: u
+    files: [
+      swin-vonkarmann-skip39-1__last_timestep__u_true.npy,
+      swin-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+      unet-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+      id-swin-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+      id-unet-vonkarmann-skip39-1__last_timestep__u_pred.npy,
+    ]

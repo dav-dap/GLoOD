@@ -1,0 +1,23 @@
+defaults:
+  - _self_
+
+hydra:
+  run:
+    dir: .
+
+input_root: /home/davide/projects/glood-demo/analysis/vonkarmann-data/swin-vonkarmann-skip39-1
+second_input_root: /home/davide/projects/glood-demo/analysis/vonkarmann-data/swin-vonkarmann_vtkp06_skip39-1
+output_filename: paper_snapshot_grid_vonkarmann.png
+pad_inches: 0.02
+cmap: cividis
+dataset_title: vonkarman-skip39-1
+second_dataset_title: vonkarman_vtkp06_skip39-1
+
+figure:
+  width: 8.27
+  colorbar_width: 0.14
+  horizontal_gap: 0.015
+  vertical_gap: 0.015
+  dpi: 300
+  origin: lower
+  interpolation: nearest

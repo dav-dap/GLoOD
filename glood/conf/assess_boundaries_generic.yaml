@@ -1,0 +1,21 @@
+defaults:
+  - _self_
+  - plotting_providers: provider_file_generic
+
+hydra:
+  run:
+    dir: .
+
+input_dir: __DUMMY__
+
+assessment:
+  epsilon: 1.0e-8
+  ux_channel: 1
+  uy_channel: 2
+  matnum_value: 1
+  require_matnum: true
+
+outputs:
+  per_timestep_csv: boundary_mask_metrics_per_timestep.csv
+  by_pair_csv: boundary_mask_metrics_by_pair.csv
+  global_csv: boundary_mask_metrics_global.csv

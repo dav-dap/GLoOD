@@ -1,0 +1,61 @@
+datasets:
+  - label: swin-cavity
+    model: swin
+    geometry: cavity
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/swin-cavity.tar
+    example_id_offset: -1
+  - label: unet-cavity
+    model: unet
+    geometry: cavity
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/unet-cavity.tar
+    example_id_offset: -1
+  - label: id-swin-cavity
+    model: id-swin
+    geometry: cavity
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-swin-cavity
+    example_id_offset: -1
+  - label: id-unet-cavity
+    model: id-unet
+    geometry: cavity
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-unet-cavity
+    example_id_offset: -1
+  - label: swin-circles
+    model: swin
+    geometry: circles
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/swin-circles.tar
+    example_id_offset: -1
+  - label: unet-circles
+    model: unet
+    geometry: circles
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/unet-circles.tar
+    example_id_offset: -1
+  - label: id-swin-circles
+    model: id-swin
+    geometry: circles
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-swin-circles
+    example_id_offset: -1
+  - label: id-unet-circles
+    model: id-unet
+    geometry: circles
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-unet-circles
+    example_id_offset: -1
+  - label: swin-squares
+    model: swin
+    geometry: squares
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/swin-squares.tar
+    example_id_offset: -1
+  - label: unet-squares
+    model: unet
+    geometry: squares
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/unet-squares.tar
+    example_id_offset: -1
+  - label: id-swin-squares
+    model: id-swin
+    geometry: squares
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-swin-squares
+    example_id_offset: -1
+  - label: id-unet-squares
+    model: id-unet
+    geometry: squares
+    input_dir: /mnt/data1/users/dapelo/glood-demo_paper01_supporting_evidence/inference/id-unet-squares
+    example_id_offset: -1

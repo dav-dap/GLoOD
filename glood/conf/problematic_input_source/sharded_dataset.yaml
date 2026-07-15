@@ -1,0 +1,11 @@
+_target_: glood.src.assessment.problematic_sources.ShardedDatasetSource
+dataset:
+  _target_: glood.src.datasets.sharded_dataset.ShardedDatasetSeriesWithMatnum
+  shard_dir: ${problematic_input.dataset.shard_dir}
+  shuffle: ${problematic_input.dataset.shuffle}
+sample_source: ${problematic_input.sample_source}
+source_name: ${problematic_input.source_name}
+split: ${problematic_input.split}
+val_fraction: ${problematic_input.val_fraction}
+split_shuffle: ${problematic_input.split_shuffle}
+max_examples: ${problematic_input.max_examples}

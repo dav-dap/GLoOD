@@ -1,0 +1,104 @@
+defaults:
+  - _self_
+  - callbacks: history_plot
+  - model: __DUMMY__
+  - dataset: __DUMMY__
+  - loss: alpha
+  - model_wrapper: model_wrapper
+  - model_wrapper_train: train
+  - plotting_providers: provider_file_epoch
+
+hydra:
+  run:
+    dir: .
+
+dataset_shapes:
+  H: 101
+  W: 101
+  C: 3
+  len_seq: 20
+
+force_audit:
+  # Extract obstacles from GT
+  tau_speed_true: __DUMMY__
+  min_blob_px: __DUMMY__
+
+  # Smoothing for predicted fields (p, ux, uy)
+  smoothing:
+    method: __DUMMY__
+    sigma: __DUMMY__
+    median_size: __DUMMY__
+
+  # Direction for drag/lift naming (purely semantic)
+  freestream_dir: __DUMMY__
+
+hyperparams_dataset:
+  i: __DUMMY__
+  k: __DUMMY__
+  steps_per_epoch: null
+  dataset_base_folder: __DUMMY__
+  shard_subfolder: dataset
+  shard_dir: ${hyperparams_dataset.dataset_base_folder}/${hyperparams_dataset.shard_subfolder}
+  val_batch_size: null
+  shuffle: true
+
+hyperparams_model:
+  dropout_rate: __DUMMY__
+  loss_alpha: 0.5
+  single_latent_dim: __DUMMY__
+  bottleneck_dim: __DUMMY__
+  latent_pool_hw: __DUMMY__
+  use_ema: false
+  gradient_clip_norm: null
+  metrics:
+    - _target_: glood.src.metrics.p_mse.p_mse
+      _partial_: true
+    - _target_: glood.src.metrics.u_cosine_similarity.u_cosine_similarity
+      _partial_: true
+      eps: 1.0e-08
+    - _target_: glood.src.metrics.u_mse.u_mse
+      _partial_: true
+
+optimizer: 
+  class_path: torch.optim.Adam
+  kwargs:
+    lr: __DUMMY__
+    betas: [0.9, 0.999]
+    weight_decay: 0.0
+
+scheduler:
+  class_path: torch.optim.lr_scheduler.ReduceLROnPlateau
+  kwargs:
+    mode: min
+    factor: __DUMMY__
+    patience: __DUMMY__
+    min_lr: __DUMMY__
+
+train_params:
+  batch_size: __DUMMY__
+  epochs: __DUMMY__
+  val_fraction: null
+  split_shuffle: true
+  history_digits: 10
+  plot_number_of_examples: 2
+  plot_epoch_interval: 10
+
+plotting:
+  remove_title: false
+  protocols:
+    - _target_: glood.src.plotting.processing_protocols.p_pred
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.p_true
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.p_mse
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_pred
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_true
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_mse
+      _partial_: true
+    - _target_: glood.src.plotting.processing_protocols.u_cos_dist
+      _partial_: true
+
+src_path: __DUMMY__
