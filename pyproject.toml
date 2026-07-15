@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glood-demo"
+version = "0.0.1"
+
+[project.scripts]
+glood_assess_boundaries = "glood.assess_boundaries:main"
+glood_assess_drag_force_remote = "glood.assess_drag_force_remote:main"
+glood_assess_drag_force = "glood.assess_drag_force:main"
+glood_assess_fieldwise = "glood.assess_fieldwise:main"
+glood_assess_problematic_examples = "glood.assess_problematic_examples:main"
+glood_assess_profiles = "glood.assess_profiles:main"
+glood_build_dataset = "glood.build_dataset:main"
+glood_export_fieldwise_examples = "glood.export_fieldwise_examples:main"
+glood_infer         = "glood.infer:main"
+glood_load          = "glood.load:main"
+glood_plot_assess_boundaries_sweep = "glood.plot_assess_boundaries_sweep:main"
+glood_plot          = "glood.plot:main"
+glood_plot_square_domain_sections = "glood.plot_square_domain_sections:main"
+glood_process_stats = "glood.process_stats:main"
+glood_train         = "glood.train:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["glood*"]
